@@ -1,0 +1,5 @@
+name: PortalRequirements
+version: 1.0
+api-version: 1.13
+main: me.otuin.PortalRequirements
+author: oTuin
