@@ -1,5 +1,7 @@
 name: PortalRequirements
-version: 1.0
+version: 1.2
 api-version: 1.13
 main: me.otuin.PortalRequirements
-author: oTuin
+author: [ oTuin, SillyCorn ]
+depend:
+  - LuckPerms
