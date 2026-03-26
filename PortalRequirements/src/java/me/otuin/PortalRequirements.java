@@ -197,15 +197,11 @@ public class PortalRequirements extends JavaPlugin implements Listener {
             event.setCancelled(true);
         } else if (cause == PlayerTeleportEvent.TeleportCause.END_PORTAL && !player.hasPermission("portalrequirements.end")) {
             event.setCancelled(true);
-            Location loc = player.getLocation();
-            int[][] offsets = {{0,1}, {0,-1}, {1,0}, {-1,0}, {1,1}, {1,-1}, {-1,1}, {-1,-1}, {0,2}, {0,-2}, {2,0}, {-2,0}};
-
-            for (int[] offset : offsets) {
-                if (loc.getWorld().getBlockAt(loc.getBlockX() + offset[0], loc.getBlockY(), loc.getBlockZ() + offset[1]).getType() == Material.END_PORTAL_FRAME) {
-                    player.teleport(new Location(loc.getWorld(), loc.getBlockX() + offset[0] + 0.5, loc.getBlockY() + 1, loc.getBlockZ() + offset[1] + 0.5, loc.getYaw(), loc.getPitch()));
-                    return;
-                }
-            }
+            double yaw = Math.toRadians(player.getLocation().getYaw());
+            double x = -Math.sin(yaw);
+            double z = Math.cos(yaw);
+            player.setVelocity(new org.bukkit.util.Vector(x * -1.5, 1.2, z * -1.5));
+            player.playSound(player.getLocation(), Sound.ENTITY_ELDER_GUARDIAN_DEATH, 1.0f, 0.5f);
         }
     }
 
