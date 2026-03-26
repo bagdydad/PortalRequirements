@@ -1,0 +1,87 @@
+messages:
+  nether_line_1: "&cYou have read the Nether scroll and must face the torment of hell!"
+  nether_line_2: "&aThe gates of the Nether are now open to you; you can reach it using portals."
+  end_line_1: "&7You have read your final scroll and must face unbearable pain and sorrow!"
+  end_line_2: "&aThe path to the End is now open to you; you can reach it using gateways."
+  already_read: "&cYou have already read this scroll!"
+  need_nether_first: "&cYou must have read the Nether Scroll first to understand this scroll!"
+triggers:
+  # when player obtains this item it will unlock the recipe of the scroll
+  nether_unlock_item: "OBSIDIAN"
+  end_unlock_item: "ENDER_EYE"
+
+nether_scroll:
+  item: "FLOWER_BANNER_PATTERN"
+  name: "&cNether Scroll"
+  lore:
+    - "&cAn ancient scroll that opens the gates of the Nether."
+    - "&cThe cost of reading this scroll is very heavy."
+    - "&cThose who do not know what they are doing should not touch this scroll!"
+    - "&cRight-click to read the scroll."
+  # for fun and for the cool effect
+  enchantment: "FIRE_ASPECT"
+  enchantment_level: 1
+  # unluck effect is here to make the extra effects persist after death etc
+  # so if you give a duration thats too long if player receives poison effect afterwards it will persist in death
+  unluck_effect:
+    duration: 12000
+    amplifier: 1
+  extra_effects:
+    - type: "POISON"
+      duration: 12000
+      amplifier: 1
+    - type: "NAUSEA"
+      duration: 220
+      amplifier: 1
+  recipe:
+    # it's like crafting table
+    shape:
+      - "SLY" # first 3
+      - "COR" # middle
+      - "NAB"  # third part
+    ingredients:
+      S: "ENDER_PEARL"
+      L: "MAGMA_BLOCK"
+      Y: "AMETHYST_SHARD"
+      C: "NETHERRACK"
+      O: "TOTEM_OF_UNDYING"
+      R: "CRYING_OBSIDIAN"
+      N: "OPEN_EYEBLOSSOM"
+      A: "TORCHFLOWER"
+      B: "PITCHER_PLANT"
+
+end_scroll:
+  item: "GLOBE_BANNER_PATTERN"
+  name: "&7End Scroll"
+  lore:
+    - "&7An ancient scroll that opens the gateway to the End."
+    - "&7Reading this scroll brings only pain and sorrow."
+    - "&7Those who do not know what they are doing should not touch this scroll!"
+    - "&7Right-click to read the scroll."
+  # for fun and for the cool effect
+  enchantment: "KNOCKBACK"
+  enchantment_level: 1
+  # unluck effect is here to make the extra effects persist after death etc
+  # so if you give a duration thats too long if player receives poison effect afterwards it will persist in death
+  unluck_effect:
+    duration: 12000
+    amplifier: 1
+  extra_effects:
+    - type: "POISON"
+      duration: 12000
+      amplifier: 1
+    - type: "DARKNESS"
+      duration: 600
+      amplifier: 0
+  recipe:
+    shape:
+      - "ABA"
+      - "HGH"
+      - "ZYZ"
+    ingredients:
+      A: "END_CRYSTAL"
+      B: "BEACON"
+      H: "RECOVERY_COMPASS"
+      G: "SCULK_SHRIEKER"
+      Z: "NETHERITE_BLOCK"
+      Y: "HEAVY_CORE"
